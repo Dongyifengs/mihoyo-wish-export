@@ -1,0 +1,22 @@
+{
+  "name": "electron-vue3-ts-templete",
+  "version": "1.0.0",
+  "main": "build/main.js",
+  "type": "commonjs",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "dev": "npx tsc && electron ."
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "electron": "^29.1.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  }
+}
