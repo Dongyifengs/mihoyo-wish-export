@@ -26,9 +26,8 @@ jobs:
       - name: 编译app为zip
         run: yarn run make
         working-directory: "./build/app/"
-      - uses: actions/cache/save@v3
+      - uses: actions/upload-artifact@v4
         name: 存储构件
-        if: always()
         with:
           path: "./build/app/out/"
-          key: ${{ runner.os }}-${{ hashFiles('./build/app/out/') }}
+          name: "out.zip"
