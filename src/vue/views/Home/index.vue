@@ -8,22 +8,22 @@
       </el-header>
 
       <div class="gameList whiteCard">
-        <div class="gameCard">
+        <div class="gameCard" @click="router.push('/genshin')">
           <img src="../../public/Genshin.jpg" alt="原神" class="gameImage"/>
           <span class="gameName">原神</span>
         </div>
 
-        <div class="gameCard">
+        <div class="gameCard" @click="router.push('/honkaiimpact')">
           <img src="../../public/Honkai_Impact_3.png" alt="崩坏3" class="gameImage"/>
           <span class="gameName">崩坏3</span>
         </div>
 
-        <div class="gameCard" style="width: 120px;">
+        <div class="gameCard" style="width: 120px;" @click="router.push('/starrail')">
           <img src="../../public/StarRail.png" alt="崩坏：星穹铁道" class="gameImage"/>
           <span class="gameName">崩坏：星穹铁道</span>
         </div>
 
-        <div class="gameCard">
+        <div class="gameCard" @click="router.push('/zzz')">
           <img src="../../public/Zenless_Zone_Zero.png" alt="绝区零" class="gameImage"/>
           <span class="gameName">绝区零</span>
         </div>
@@ -33,7 +33,9 @@
 </template>
 
 <script setup lang="ts">
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 </script>
 
 <style scoped>

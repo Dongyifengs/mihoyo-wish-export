@@ -1,5 +1,5 @@
 <template>
-  StarRail
+  ZZZ
   <el-button @click="router.push('/')">
     返回
   </el-button>

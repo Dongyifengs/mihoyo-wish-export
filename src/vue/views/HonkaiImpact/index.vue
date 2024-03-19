@@ -1,5 +1,5 @@
 <template>
-  StarRail
+  HonkaiImpact
   <el-button @click="router.push('/')">
     返回
   </el-button>
