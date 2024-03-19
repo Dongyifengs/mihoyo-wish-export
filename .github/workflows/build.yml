@@ -1,0 +1,34 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: "编译"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: 克隆项目
+      - uses: actions/setup-node@v4
+        name: 创建nodejs环境
+        with:
+          node-version: ">=20.11.1"
+      - name: 安装yarn
+        run: npm install -g yarn
+      - name: 安装主项目依赖
+        run: yarn install
+      - name: 编译主项目
+        run: yarn run build
+      - name: 安装app依赖
+        run: yarn install
+        working-directory: "./build/app/"
+      - name: 编译app为zip
+        run: yarn run make
+        working-directory: "./build/app/"
+      - uses: actions/cache/save@v3
+        name: 存储构件
+        if: always()
+        with:
+          path: "./build/app/out/"
+          key: ${{ runner.os }}-${{ hashFiles('./build/app/out/') }}

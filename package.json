@@ -5,21 +5,19 @@
   "type": "commonjs",
   "license": "MIT",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "dev": "npx tsc && electron ."
+    "dev": "vue-tsc && electron .",
+    "build": "vue-tsc && node ./build/utils/BuildUtils.js"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "create-electron-app": "^7.3.0",
+    "electron": "^29.1.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4",
+    "vue-tsc": "^2.0.6",
     "element-plus": "^2.6.1",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.2",
     "vue-router": "4"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "electron": "^29.1.0",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.4"
   }
 }

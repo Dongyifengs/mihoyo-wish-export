@@ -1,5 +1,6 @@
 import { app, BrowserWindow, Menu } from "electron";
 import {startingDevServer} from "./utils/DevUtils";
+import { join as pathJoin } from "path";
 
 const development = true;
 const createWindow = async () => {
@@ -15,7 +16,7 @@ const createWindow = async () => {
             console.log("[electron] starting development on http://127.0.0.1:"+serverPort);
         });
     } else {
-        win.loadFile('index.html').then(() => {
+        win.loadFile(pathJoin(__dirname, 'index.html')).then(() => {
             console.log("[electron] starting");
         });
     }
