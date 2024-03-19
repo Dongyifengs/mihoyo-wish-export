@@ -1,6 +1,6 @@
 {
-  "name": "electron-vue3-ts-templete",
-  "version": "1.0.0",
+  "name": "mihoyo-wish-export",
+  "version": "0.0.1",
   "main": "build/main.js",
   "type": "commonjs",
   "license": "MIT",
