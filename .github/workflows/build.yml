@@ -29,7 +29,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         name: 存储构件
         with:
-          path: ./build/app/out/
+          path: ./build/app/out/make
           name: out-windows
   build-linux:
     name: 编译Linux
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         name: 存储构件
         with:
-          path: ./build/app/out/
+          path: ./build/app/out/make
           name: out-linux
   build-macos:
     name: 编译MacOS
@@ -83,5 +83,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         name: 存储构件
         with:
-          path: ./build/app/out/
+          path: ./build/app/out/make
           name: out-macos
