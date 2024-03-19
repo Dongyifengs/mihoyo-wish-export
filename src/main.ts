@@ -1,31 +1,34 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 import {startingDevServer} from "./utils/DevUtils";
 
 const development = true;
 const createWindow = async () => {
+    Menu.setApplicationMenu(null);
     const win = new BrowserWindow({
         width: 800,
         height: 600
     })
     if (development){
-        win.loadURL('http://127.0.0.1:' + await startingDevServer()).then(() => {
-            console.log("[electron] starting development")
+        const serverPort = await startingDevServer();
+        win.loadURL('http://127.0.0.1:' + serverPort).then(() => {
+            win.webContents.openDevTools();
+            console.log("[electron] starting development on http://127.0.0.1:"+serverPort);
         });
     } else {
         win.loadFile('index.html').then(() => {
-            console.log("[electron] starting")
+            console.log("[electron] starting");
         });
     }
 }
 
 app.whenReady().then(() => {
-    createWindow().then(r => {
+    createWindow().then(() => {
         console.log("[electron] running")
     })
 
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow().then(r => {
+            createWindow().then(() => {
                 console.log("[electron] running")
             })
         }

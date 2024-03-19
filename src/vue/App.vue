@@ -1,9 +1,8 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
- Hello Electron
+  <router-view></router-view>
 </template>
 
 <style scoped>
