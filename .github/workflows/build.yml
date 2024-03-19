@@ -5,8 +5,8 @@ on:
       - main
 jobs:
   build:
-    name: "编译"
-    runs-on: ubuntu-latest
+    name: 编译
+    runs-on: [windows-latest, macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
         name: 克隆项目
@@ -22,12 +22,12 @@ jobs:
         run: yarn run build
       - name: 安装app依赖
         run: yarn install
-        working-directory: "./build/app/"
+        working-directory: ./build/app/
       - name: 编译app为zip
         run: yarn run make
-        working-directory: "./build/app/"
+        working-directory: ./build/app/
       - uses: actions/upload-artifact@v4
         name: 存储构件
         with:
-          path: "./build/app/out/"
-          name: "out.zip"
+          path: ./build/app/out/
+          name: out.zip
